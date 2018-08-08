@@ -119,6 +119,7 @@ int main(int argc, char **argv) {
             else frame_size = lw_size;
             if(frame_num == 0)
             {
+                printf("first frameee\n");
                 //convert to grayscale and set the first frame
                 cvtColor(frame, firstFrame, COLOR_BGR2GRAY);
                 GaussianBlur(firstFrame, firstFrame, Size(21, 21), 0);
