@@ -38,6 +38,7 @@ int main(int argc, char **argv) {
 
     item = mypacer.readItem("box_entry");
     string init_video_data = string(item);
+    cout << init_video_data <<endl;
     istringstream iss(item);
     vector<string> init_video_data_vec(std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>());
     
