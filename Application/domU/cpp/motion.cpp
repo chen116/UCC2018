@@ -5,7 +5,15 @@
 #include <opencv2/tracking.hpp>
 #include <opencv2/core/ocl.hpp>
 #include <unistd.h>
+
+
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <iterator>
 #include "pacer.h"
+#include <stdio.h>
 
 using namespace cv;
 using namespace std;
