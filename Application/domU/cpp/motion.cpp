@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
     int detect_car = vidarray_binary[0];
     int prev_frame_size = 0;
 
-    Mat frame, gray, frameDelta, thresh, firstFrame;
+    Mat ori_frame,frame, gray, frameDelta, thresh, firstFrame;
     vector<vector<Point> > cnts;
     while (strcmp("done",item)!=0)
     {
@@ -115,7 +115,9 @@ int main(int argc, char **argv) {
         if (frame_num > prev_frame_num) 
         {
             prev_frame_num = frame_num;
-            frame = vidarray[frame_num];
+            ori_frame = vidarray[frame_num];
+            resize(ori_frame, frame, cv::Size( 1000,round(144*1000/176)));
+
             if (detect_car) frame_size = hw_size;
             else frame_size = lw_size;
             if(frame_num == 0)
