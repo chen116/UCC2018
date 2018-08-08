@@ -26,6 +26,8 @@ int main(int argc, char **argv) {
     mypacer.setItem("frame_number_entry");
     mypacer.setItem("frame_size");
 
+   
+    int g;
     char * item;
     printf("My Dom ID: %d\n",mypacer.getDomid() );
     printf("waiting for dom0...\n");
@@ -38,7 +40,7 @@ int main(int argc, char **argv) {
     string init_video_data = string(item);
     istringstream iss(item);
     vector<string> init_video_data_vec(std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>());
-
+    
     int hw_size,lw_size;
     if (init_video_data_vec[0]=="init")
     {
