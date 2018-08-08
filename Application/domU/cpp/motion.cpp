@@ -13,11 +13,10 @@ int main(int argc, char **argv) {
 
     Mat frame, gray, frameDelta, thresh, firstFrame;
     vector<vector<Point> > cnts;
-    VideoCapture camera(0); //open camera
-    
+    VideoCapture camera("rollcar.3gp"); //open camera
     //set the video size to 512x288 to process faster
-    camera.set(3, 512);
-    camera.set(4, 288);
+    // camera.set(3, 512);
+    // camera.set(4, 288);
 
     sleep(3);
     camera.read(frame);
