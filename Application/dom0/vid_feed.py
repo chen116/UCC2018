@@ -78,7 +78,6 @@ with Client(xen_bus_path="/dev/xen/xenbus") as c:
 			if key == "box_entry":
 				tmp_val = init_video_data_string.encode()
 			c.write(tmp_key_path,tmp_val)
-			print('created',key,'for dom',domuid)
 
 	print('waiting for domUs getting ready...')
 	while len(not_ready_domUs)>0:
