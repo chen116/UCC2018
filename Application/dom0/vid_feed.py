@@ -54,39 +54,15 @@ fps_val = 10
 
 with Client(xen_bus_path="/dev/xen/xenbus") as c:
 	# synching with DomUs with xenstore
-	domu_ids=[]
-	all_domuid_ids = []
+
 	box_color = {}
-	# for x in c.list('/local/domain'.encode()):
-	# 	all_domuid_ids.append(x.decode())
-	# all_domuid_ids.pop(0)
-	all_domuid_ids = ['28','29']
-	for x in all_domuid_ids:
-		name_path = ("/local/domain/"+x+"/name").encode()
-		if c[name_path].decode() == "VM1":
-			domu_ids.append(x)
-			box_color[x]=[255,144,30] # blue box
-		if c[name_path].decode() == "VM2":
-			domu_ids.append(x)
-			box_color[x]=[120,240,120] # green box			
+	domu_ids = ['28','29']
+	box_color['28']=[255,144,30]
+	box_color['29']=[120,240,120] 			
 	print("domU's id:",domu_ids)
 	boxes = {}
 	keys=['frame_number_entry','box_entry']
 	not_ready_domUs = copy.deepcopy(domu_ids)
-	for domuid in domu_ids:
-		permissions = []
-		permissions.append(('b'+'0').encode())
-		permissions.append(('b'+domuid).encode())
-		for key in keys:
-			tmp_key_path = ('/local/domain'+'/'+domuid+'/'+key).encode()
-			tmp_val = ""
-			if key == "frame_number_entry":
-				tmp_val = ('init').encode()
-			if key == "box_entry":
-				tmp_val = init_video_data_string.encode()
-			c.write(tmp_key_path,tmp_val)
-			c.set_perms(tmp_key_path,permissions)
-			print('created',key,'for dom',domuid)
 
 	print('waiting for domUs getting ready...')
 	while len(not_ready_domUs)>0:
