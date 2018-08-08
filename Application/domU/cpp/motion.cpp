@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
     }
 
 
-
+    cap.open("rollcar.3gp");
     vector<Mat> car;
     vector<Mat> no_car;
     for (int k = 0; k < 200; ++k)
