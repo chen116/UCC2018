@@ -108,7 +108,6 @@ int main(int argc, char **argv) {
 
     Mat frame, gray, frameDelta, thresh, firstFrame;
     vector<vector<Point> > cnts;
-    cout << item <<endl;
     while (strcmp("done",item)!=0)
     {
         cout <<strcmp("done",item)<<endl;
