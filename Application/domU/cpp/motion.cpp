@@ -68,6 +68,8 @@ int main(int argc, char **argv)
      
     while(video.read(frame))
     {     
+
+        Mat frame;
         // Start timer
         double timer = (double)getTickCount();
          
@@ -81,6 +83,7 @@ int main(int argc, char **argv)
         {
             // Tracking success : Draw the tracked object
             rectangle(frame, bbox, Scalar( 255, 0, 0 ), 2, 1 );
+            printf("motion detected\n");
         }
         else
         {
