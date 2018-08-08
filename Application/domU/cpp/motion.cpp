@@ -12,7 +12,7 @@ using namespace std;
 int main(int argc, char **argv)
 {
     // List of tracker types in OpenCV 3.4.1
-    string trackerTypes[8] = {"BOOSTING", "MIL", "KCF", "TLD","MEDIANFLOW", "GOTURN", "MOSSE", "CSRT"};
+    string trackerTypes[6] = {"BOOSTING", "MIL", "KCF", "TLD","MEDIANFLOW", "GOTURN"};
     // vector <string> trackerTypes(types, std::end(types));
  
     // Create a tracker
@@ -38,10 +38,7 @@ int main(int argc, char **argv)
             tracker = TrackerMedianFlow::create();
         if (trackerType == "GOTURN")
             tracker = TrackerGOTURN::create();
-        if (trackerType == "MOSSE")
-            tracker = TrackerMOSSE::create();
-        if (trackerType == "CSRT")
-            tracker = TrackerCSRT::create();
+
     }
     #endif
     // Read video
