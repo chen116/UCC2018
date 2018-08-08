@@ -118,14 +118,10 @@ int main(int argc, char **argv) {
         {
             prev_frame_num = frame_num;
             frame = vidarray[frame_num];
-            int rows = frame.rows;
-            int cols = frame.cols;
-            cout << rows << cols << endl;
             if (detect_car) frame_size = hw_size;
             else frame_size = lw_size;
             if(frame_num == 0)
             {
-                printf("first frameee\n");
                 //convert to grayscale and set the first frame
                 cvtColor(frame, firstFrame, COLOR_BGR2GRAY);
                 GaussianBlur(firstFrame, firstFrame, Size(21, 21), 0);
@@ -144,7 +140,7 @@ int main(int argc, char **argv) {
                 findContours(thresh, cnts, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
 
                 for(int i = 0; i< cnts.size(); i++) {
-                    if(contourArea(cnts[i]) < 500) {
+                    if(contourArea(cnts[i]) > 50) {
                         continue;
                     }
                     // putText(frame, "Motion Detected", Point(10, 20), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(0,0,255),2);
