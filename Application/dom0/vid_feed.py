@@ -15,7 +15,7 @@ ap.add_argument("-hw", "--heavy-workload-frame-size", type=int, default=300, hel
 ap.add_argument("-lw", "--light-workload-frame-size", type=int, default=150, help="light-workload-frame-size")
 ap.add_argument("-v", "--video-sequence",default="1111111110000000111111",help="video sequences")
 ap.add_argument("-d", "--domids",default="28,29",help="VM1 VM2 domain id")
-ap.add_argument("-f", "--fps", type=int, default=20,,help="fps")
+ap.add_argument("-f", "--fps", type=int, default=20,help="fps")
 
 args = vars(ap.parse_args())
 
