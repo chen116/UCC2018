@@ -19,6 +19,7 @@ using namespace cv;
 using namespace std;
  
 int main(int argc, char **argv) {
+    VideoCapture cap;
     Pacer mypacer;
     mypacer.setWindowSize(10);
     mypacer.setItem("box_entry");
