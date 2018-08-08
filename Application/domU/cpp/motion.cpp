@@ -16,7 +16,7 @@ int main(int argc, char **argv)
     // vector <string> trackerTypes(types, std::end(types));
  
     // Create a tracker
-    string trackerType = trackerTypes[2];
+    string trackerType = trackerTypes[0];
  
     Ptr<Tracker> tracker;
  
