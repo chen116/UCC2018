@@ -99,54 +99,55 @@ int main(int argc, char **argv) {
     while (strcmp("done",item)!=0)
     {
 
-    item=mypacer.readItem("frame_number_entry");
-    frame_num = atoi(item);
-    if (frame_num > prev_frame_num) 
-    {
-
-        prev_frame_num = frame_num;
-        frame = vidarray[frame_num];
-        if (detect_car) frame_size = hw_size;
-        else frame_size = lw_size;
-        if(frame_num == 0)
+        item=mypacer.readItem("frame_number_entry");
+        frame_num = atoi(item);
+        if (frame_num > prev_frame_num) 
         {
-            //convert to grayscale and set the first frame
-            cvtColor(frame, firstFrame, COLOR_BGR2GRAY);
-            GaussianBlur(firstFrame, firstFrame, Size(21, 21), 0);
-        }
-        else
-        {
-            //convert to grayscale
-            cvtColor(frame, gray, COLOR_BGR2GRAY);
-            GaussianBlur(gray, gray, Size(21, 21), 0);
 
-            //compute difference between first frame and current frame
-            absdiff(firstFrame, gray, frameDelta);
-            threshold(frameDelta, thresh, 25, 255, THRESH_BINARY);
-            
-            dilate(thresh, thresh, Mat(), Point(-1,-1), 2);
-            findContours(thresh, cnts, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
-
-            for(int i = 0; i< cnts.size(); i++) {
-                if(contourArea(cnts[i]) < 500) {
-                    continue;
-                }
-                // putText(frame, "Motion Detected", Point(10, 20), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(0,0,255),2);
-                printf("Motion Detected at frame%d\n",frame_num );
+            prev_frame_num = frame_num;
+            frame = vidarray[frame_num];
+            if (detect_car) frame_size = hw_size;
+            else frame_size = lw_size;
+            if(frame_num == 0)
+            {
+                //convert to grayscale and set the first frame
+                cvtColor(frame, firstFrame, COLOR_BGR2GRAY);
+                GaussianBlur(firstFrame, firstFrame, Size(21, 21), 0);
             }
-            mypacer.beat();
-            mypacer.writeInstantHeartRate();
+            else
+            {
+                //convert to grayscale
+                cvtColor(frame, gray, COLOR_BGR2GRAY);
+                GaussianBlur(gray, gray, Size(21, 21), 0);
 
-            // imshow("Camera", frame);
+                //compute difference between first frame and current frame
+                absdiff(firstFrame, gray, frameDelta);
+                threshold(frameDelta, thresh, 25, 255, THRESH_BINARY);
+                
+                dilate(thresh, thresh, Mat(), Point(-1,-1), 2);
+                findContours(thresh, cnts, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+
+                for(int i = 0; i< cnts.size(); i++) {
+                    if(contourArea(cnts[i]) < 500) {
+                        continue;
+                    }
+                    // putText(frame, "Motion Detected", Point(10, 20), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(0,0,255),2);
+                    printf("Motion Detected at frame%d\n",frame_num );
+                }
+                mypacer.beat();
+                mypacer.writeInstantHeartRate();
+
+                // imshow("Camera", frame);
+                
+                // if(waitKey(1) == 27){
+                //     //exit if ESC is pressed
+                //     break;
+                // }
             
-            // if(waitKey(1) == 27){
-            //     //exit if ESC is pressed
-            //     break;
-            // }
-        
+            }
+
+
         }
-
-
     }
     return 0;
 }
