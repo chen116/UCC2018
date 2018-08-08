@@ -42,7 +42,6 @@ int main(int argc, char **argv) {
             if(contourArea(cnts[i]) < 500) {
                 continue;
             }
-
             putText(frame, "Motion Detected", Point(10, 20), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(0,0,255),2);
         }
     
