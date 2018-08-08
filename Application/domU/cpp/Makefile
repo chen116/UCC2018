@@ -15,7 +15,7 @@ example:
 	g++ comm.o pacer.o example.o -o example -lhb-shared -lxenstore
 
 
-motion: 
+motion: clean 
 	gcc -c comm.c -lxenstore
 	g++ -c pacer.cpp -lhb-shared 
 	g++ -c motion.cpp  `pkg-config --libs opencv` -std=c++11 
@@ -23,4 +23,4 @@ motion:
 
 
 clean:
-	-rm -f vid_proc example *.o 
+	-rm -f vid_proc motion example *.o 
