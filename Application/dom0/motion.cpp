@@ -1,6 +1,5 @@
-/*
-* To compile: g++ opencv_test2.cpp -o opencv_test2 $(pkg-config --cflags --libs opencv)
-*/
+// g++ motion.cpp  `pkg-config --libs opencv` -std=c++11 
+
 #include <opencv2/opencv.hpp>
 #include <opencv2/tracking.hpp>
 #include <opencv2/core/ocl.hpp>
