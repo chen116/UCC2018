@@ -63,6 +63,16 @@ with Client(xen_bus_path="/dev/xen/xenbus") as c:
 	boxes = {}
 	keys=['frame_number_entry','box_entry']
 	not_ready_domUs = copy.deepcopy(domu_ids)
+	for domuid in domu_ids:
+		for key in keys:
+			tmp_key_path = ('/local/domain'+'/'+domuid+'/'+key).encode()
+			tmp_val = ""
+			if key == "frame_number_entry":
+				tmp_val = ('init').encode()
+			if key == "box_entry":
+				tmp_val = init_video_data_string.encode()
+			c.write(tmp_key_path,tmp_val)
+			print('created',key,'for dom',domuid)
 
 	print('waiting for domUs getting ready...')
 	while len(not_ready_domUs)>0:
