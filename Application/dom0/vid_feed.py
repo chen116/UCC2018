@@ -60,7 +60,7 @@ with Client(xen_bus_path="/dev/xen/xenbus") as c:
 	# for x in c.list('/local/domain'.encode()):
 	# 	all_domuid_ids.append(x.decode())
 	# all_domuid_ids.pop(0)
-	all_domuid_ids = [28,29]
+	all_domuid_ids = ['28','29']
 	for x in all_domuid_ids:
 		name_path = ("/local/domain/"+x+"/name").encode()
 		if c[name_path].decode() == "VM1":
