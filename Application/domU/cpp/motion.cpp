@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
 
     item = mypacer.readItem("box_entry");
     string init_video_data = string(item);
-    cout << init_video_data <<endl;
+
     istringstream iss(item);
     vector<string> init_video_data_vec(std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>());
     
@@ -108,6 +108,7 @@ int main(int argc, char **argv) {
 
     Mat frame, gray, frameDelta, thresh, firstFrame;
     vector<vector<Point> > cnts;
+    cout << item <<endl;
     while (strcmp("done",item)!=0)
     {
 
