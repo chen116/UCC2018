@@ -111,7 +111,7 @@ int main(int argc, char **argv) {
     cout << item <<endl;
     while (strcmp("done",item)!=0)
     {
-
+        cout <<strcmp("done",item)<<endl;
         item=mypacer.readItem("frame_number_entry");
         frame_num = atoi(item);
         if (frame_num > prev_frame_num) 
