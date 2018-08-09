@@ -216,7 +216,7 @@ int main(int argc, char** argv)
             if (detect_car) frame_size = hw_size;
             else frame_size = lw_size;
             Mat frame;
-            resize(ori_frame, frame, cv::Size( frame_size/2,round(144*frame_size/176/2)));
+            resize(ori_frame, frame, cv::Size( frame_size/4,round(144*frame_size/176/4)));
             if (frame.channels() == 4)
                 cvtColor(frame, frame, COLOR_BGRA2BGR);
             Mat inputBlob;
