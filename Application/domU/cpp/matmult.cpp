@@ -49,12 +49,12 @@ int main(int argc, char** argv)
     mypacer.writeItem("frame_number_entry","ready");
     printf("ready...\n");
 
-    while (strcmp("done",item)!=0)
+    while (strcmp("done",item)!=0 && strcmp("ready",item)!=0)
     {
         item=mypacer.readItem("frame_number_entry");
         int **ptr1, **ptr2, **ptr3;
         int  col1, row2, col2;
-        int N=100;
+        int N=300;
         int j,i;
         ptr1 = (int **) malloc (sizeof (int *) * N);
         ptr2 = (int **) malloc (sizeof (int *) * N);
