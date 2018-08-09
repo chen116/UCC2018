@@ -63,7 +63,6 @@ int main(int argc, char** argv)
     for (i = 0; i < 50; ++i)
     {
         matmult(ptr1,ptr2,ptr3,N);
-        matmult(ptr1,ptr2,ptr3,N);
 
 
 
