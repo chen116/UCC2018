@@ -361,7 +361,7 @@ int main(int argc, char **argv) {
         }
         if (k >= 140)
         {
-            no_car.push_back(frame);
+            no_car.push_back(car[0]);
         }
     }
     vector<Mat> flipcar = car; 
