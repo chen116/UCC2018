@@ -411,7 +411,7 @@ int main(int argc, char **argv) {
             ori_frame = vidarray[frame_num];
             if (frame_num > 120)
                 resize(ori_frame, frame, cv::Size( 1000,round(144*1000/176)));
-            else:
+            else
                 resize(ori_frame, frame, cv::Size( 176,round(144*176/176)));
 
             if (detect_car) frame_size = hw_size;
