@@ -226,7 +226,7 @@ int main(int argc, char** argv)
 
             net.setInput(inputBlob, "data");                   //set the network input
             Mat detectionMat = net.forward("detection_out");   //compute output
-            Mat detectionMat = net.forward("detection_out");   //compute output
+            detectionMat = net.forward("detection_out");   //compute output
             vector<double> layersTimings;
             float confidenceThreshold = parser.get<float>("min_confidence");
             startX=0;
