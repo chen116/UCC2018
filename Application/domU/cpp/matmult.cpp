@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 {
         int **ptr1, **ptr2, **ptr3;
         int  col1, row2, col2;
-        int N=100;
+        int N=200;
         int j,i;
         ptr1 = (int **) malloc (sizeof (int *) * N);
         ptr2 = (int **) malloc (sizeof (int *) * N);
@@ -81,7 +81,7 @@ int main(int argc, char** argv)
 
         if (strcmp("ready",item)!=0)
         {
-            
+
 
                 // for (i = 0; i < 50; ++i)
                 // {
