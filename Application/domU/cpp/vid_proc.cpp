@@ -208,7 +208,6 @@ int main(int argc, char** argv)
     {
     	item=mypacer.readItem("frame_number_entry");
     	frame_num = atoi(item);
-        printf("%s %d\n",item,strcmp("ready",item) );
     	if (frame_num > prev_frame_num && strcmp("ready",item)!=0) 
     	{
     		Mat ori_frame;
