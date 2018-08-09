@@ -274,7 +274,7 @@ int main(int argc, char** argv)
     		}
     				
     		mypacer.beat();
-    		mypacer.writeInstantHeartRate();
+            if (frame_num>0)mypacer.writeInstantHeartRate();
     	}
     	
 
