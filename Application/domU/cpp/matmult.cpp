@@ -7,9 +7,8 @@
 #include <iostream>
 #include <string>
 #include <iterator>
-#include "pacer.h"
 #include <stdio.h>
-
+#include <cstring>
 void matmult(int **,int **,int **,int);
 
 void matmult(int ** ptr1,int ** ptr2, int ** ptr3,int N){
