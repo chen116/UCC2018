@@ -112,7 +112,7 @@ with Client(xen_bus_path="/dev/xen/xenbus") as c:
 			continue
 		font_size=-1
 		# get boxes from domUs if any, and draw the boxes on the frame 
-		for domuid in domu_ids:
+		for domuid in [domu_ids[0]]:#domu_ids:
 			key_path_hash=('/local/domain/'+domuid+'/box_entry').encode()
 			try:
 				boxes[domuid]=tuple(map(int, c.read(key_path_hash).decode().split(' ')))#(startX, startY, endX, endY)	
