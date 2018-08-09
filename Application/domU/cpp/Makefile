@@ -21,6 +21,11 @@ motion: clean
 	g++ -c motion.cpp  `pkg-config --libs opencv` -std=c++11 
 	g++ comm.o pacer.o motion.o -o motion -lhb-shared -lxenstore  `pkg-config --libs opencv` -std=c++11
 
+matmult: clean 
+	gcc -c comm.c -lxenstore
+	g++ -c pacer.cpp -lhb-shared 
+	g++ -c matmult.cpp  `pkg-config --libs opencv` -std=c++11 
+	g++ comm.o pacer.o matmult.o -o matmult -lhb-shared -lxenstore  `pkg-config --libs opencv` -std=c++11
 
 clean:
-	-rm -f vid_proc motion example *.o 
+	-rm -f vid_proc motion matmult example *.o 
