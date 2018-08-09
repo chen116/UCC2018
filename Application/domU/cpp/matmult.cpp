@@ -73,6 +73,7 @@ int main(int argc, char** argv)
 
         // printf("heartbeat: instant rate: %f\n",hb_get_instant_rate(heart) );
     }
+        usleep(100000);
     
     for (i = 0; i < 50; ++i)
     {
