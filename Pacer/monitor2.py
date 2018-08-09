@@ -100,7 +100,6 @@ class MonitorThread(threading.Thread):
 							info = self.domuid+" "+str(heart_rate)+" hr "+time_now+"\n"
 							with open("data.txt", "a") as myfile:
 								myfile.write(info+"\n")
-							return
 
 					except:
 						heart_rate=-1			
