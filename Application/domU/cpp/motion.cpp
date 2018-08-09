@@ -112,7 +112,7 @@ int main(int argc, char **argv) {
     {
         item=mypacer.readItem("frame_number_entry");
         frame_num = atoi(item);
-        if (frame_num > -1)//prev_frame_num) 
+        if (frame_num > prev_frame_num) 
         {
             prev_frame_num = frame_num;
             ori_frame = vidarray[frame_num];
