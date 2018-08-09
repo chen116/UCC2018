@@ -2,7 +2,13 @@
 #include "pacer.h"
 // library for sleep function used in this example
 #include <unistd.h>
-
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <iterator>
+#include "pacer.h"
+#include <stdio.h>
 
 void matmult(int **,int **,int **,int);
 
