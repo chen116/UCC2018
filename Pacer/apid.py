@@ -44,7 +44,7 @@ class AdapPID:
 			self.start=1
 		else:
 			self.delta_time = current_time - self.last_time
-		self.output = self.p() + self.i() + self.p() 
+		self.output = self.p() + self.i() 
 		self.last_time = current_time
 
 		return self.output
