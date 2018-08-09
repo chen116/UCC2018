@@ -192,7 +192,7 @@ int main(int argc, char** argv)
     printf("ready...\n");
 
 
-    int frame_num;
+    int frame_num=-2;
     int prev_frame_num = -1;
     int frame_size = vidarray_binary[0];
     int detect_car = vidarray_binary[0];
