@@ -420,16 +420,20 @@ int main(int argc, char **argv) {
             }
             else
             {
-                //convert to grayscale
-                cvtColor(frame, gray, COLOR_BGR2GRAY);
-                GaussianBlur(gray, gray, Size(21, 21), 0);
+                for (int i = 0; i < 10; ++i)
+                {
+                    //convert to grayscale
+                    cvtColor(frame, gray, COLOR_BGR2GRAY);
+                    GaussianBlur(gray, gray, Size(21, 21), 0);
 
-                //compute difference between first frame and current frame
-                absdiff(firstFrame, gray, frameDelta);
-                threshold(frameDelta, thresh, 25, 255, THRESH_BINARY);
-                
-                dilate(thresh, thresh, Mat(), Point(-1,-1), 2);
-                findContours(thresh, cnts, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+                    //compute difference between first frame and current frame
+                    absdiff(firstFrame, gray, frameDelta);
+                    threshold(frameDelta, thresh, 25, 255, THRESH_BINARY);
+                    
+                    dilate(thresh, thresh, Mat(), Point(-1,-1), 2);
+                    findContours(thresh, cnts, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+                }
+
 
                 for(int i = 0; i< cnts.size(); i++) {
                     if(contourArea(cnts[i]) < 50) {
