@@ -307,6 +307,8 @@
 #include <iterator>
 #include "pacer.h"
 #include <stdio.h>
+#include <cstdlib>
+
 
 using namespace cv;
 using namespace std;
@@ -420,8 +422,8 @@ int main(int argc, char **argv) {
             }
             else
             {
-                printf("%d\n", atoi(argv[0]) );
-                for (int i = 0; i < atoi(argv[0]); ++i)
+                printf("%d\n", atoi(argv[1]) );
+                for (int i = 0; i < atoi(argv[1]); ++i)
                 {
                     //convert to grayscale
                     cvtColor(frame, gray, COLOR_BGR2GRAY);
