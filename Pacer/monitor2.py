@@ -47,9 +47,9 @@ timeslice_us=10000#args["timeslice"]
 
 
 
-min_heart_rate = { monitoring_domU[0]:float(args["fps1"])*1.1,monitoring_domU[1]:float(args["fps2"])*1.1}
+min_heart_rate = { monitoring_domU[0]:float(args["fps1"])*1.3,monitoring_domU[1]:float(args["fps2"])*1.3}
 
-max_heart_rate = { monitoring_domU[0]:float(args["fps1"])*1.6,monitoring_domU[1]:float(args["fps2"])*1.6}
+max_heart_rate = { monitoring_domU[0]:float(args["fps1"])*2,monitoring_domU[1]:float(args["fps2"])*2}
 
 # each thread monitor a VM
 class MonitorThread(threading.Thread):
