@@ -47,7 +47,7 @@ timeslice_us=10000#args["timeslice"]
 
 
 
-min_heart_rate = { monitoring_domU[0]:float(args["fps1"])*1.3,monitoring_domU[1]:float(args["fps2"])*1.3}
+min_heart_rate = { monitoring_domU[0]:float(args["fps1"])*1.5,monitoring_domU[1]:float(args["fps2"])*1.5}
 
 max_heart_rate = { monitoring_domU[0]:float(args["fps1"])*2,monitoring_domU[1]:float(args["fps2"])*2}
 
@@ -124,7 +124,7 @@ class MonitorThread(threading.Thread):
 		cur_bw = self.allocMod.exec_allocation(heart_rate,cur_bw)
 		# run stride sharing if needed
 		# (cur_bw,other_cur_bw)=self.allocMod.exec_stride_sharing(cur_bw,time.time())
-		
+
 		other_cur_bw = self.timeslice_us - cur_bw
 
 		# assign the new cpu resource to VM
