@@ -436,7 +436,7 @@ int main(int argc, char **argv) {
 
 
                 for(int i = 0; i< cnts.size(); i++) {
-                    if(contourArea(cnts[i]) < 50) {
+                    if(contourArea(cnts[i]) < 500) {
                         continue;
                     }
                     // putText(frame, "Motion Detected", Point(10, 20), FONT_HERSHEY_SIMPLEX, 0.75, Scalar(0,0,255),2);
