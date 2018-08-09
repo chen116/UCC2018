@@ -318,8 +318,6 @@ int main(int argc, char **argv) {
     mypacer.setItem("box_entry");
     mypacer.setItem("frame_number_entry");
     mypacer.setItem("frame_size");
-
- 
     char * item;
     printf("My Dom ID: %d\n",mypacer.getDomid() );
     printf("waiting for dom0...\n");

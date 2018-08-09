@@ -41,12 +41,13 @@ int main(int argc, char** argv)
     char * item;
     printf("My Dom ID: %d\n",mypacer.getDomid() );
     printf("waiting for dom0...\n");
-    mypacer.writeItem("frame_number_entry","ready");
-    printf("ready...\n");
     while (strcmp("init",item)!=0)
     {
         item = mypacer.readItem("frame_number_entry");
     } 
+
+    mypacer.writeItem("frame_number_entry","ready");
+    printf("ready...\n");
 
     while (strcmp("done",item)!=0)
     {
