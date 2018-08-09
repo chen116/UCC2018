@@ -288,7 +288,7 @@ int main(int argc, char** argv)
     return 0;
 
 }
-/
+
 
 // /*
 // * To compile: g++ opencv_test2.cpp -o opencv_test2 $(pkg-config --cflags --libs opencv)
