@@ -206,8 +206,9 @@ int main(int argc, char** argv)
 
     while (strcmp("done",item)!=0)
     {
-    	item=mypacer.readItem("frame_number_entry");
-    	frame_num = atoi(item);
+    	// item=mypacer.readItem("frame_number_entry");
+    	// frame_num = atoi(item);
+        frame_num++;
     	if (frame_num > prev_frame_num) 
     	{
     		Mat ori_frame;
