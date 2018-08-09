@@ -80,7 +80,7 @@ int main(int argc, char** argv)
         item=mypacer.readItem("frame_number_entry");
 
 
-
+        printf("%s\n",item );
         // for (i = 0; i < 50; ++i)
         // {
             matmult(ptr1,ptr2,ptr3,N);
