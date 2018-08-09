@@ -123,7 +123,8 @@ class MonitorThread(threading.Thread):
 		# calculate next cpu resource assignment
 		cur_bw = self.allocMod.exec_allocation(heart_rate,cur_bw)
 		# run stride sharing if needed
-		(cur_bw,other_cur_bw)=self.allocMod.exec_stride_sharing(cur_bw,time.time())
+		# (cur_bw,other_cur_bw)=self.allocMod.exec_stride_sharing(cur_bw,time.time())
+		
 		other_cur_bw = self.timeslice_us - cur_bw
 
 		# assign the new cpu resource to VM
