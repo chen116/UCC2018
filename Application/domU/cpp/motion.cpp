@@ -422,7 +422,7 @@ int main(int argc, char **argv) {
             }
             else
             {
-                printf("%d\n", atoi(argv[1]) );
+    
                 for (int i = 0; i < atoi(argv[1]); ++i)
                 {
                     //convert to grayscale
