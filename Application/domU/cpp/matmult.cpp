@@ -74,28 +74,30 @@ int main(int argc, char** argv)
 
     mypacer.writeItem("frame_number_entry","ready");
     printf("ready...\n");
-
-    while (strcmp("done",item)!=0 && strcmp("ready",item)!=0)
+   
+    while (strcmp("done",item)!=0)
     {
         item=mypacer.readItem("frame_number_entry");
 
+        if (strcmp("ready",item)!=0)
+        {
+            
 
-        printf("%s\n",item );
-        // for (i = 0; i < 50; ++i)
-        // {
-            matmult(ptr1,ptr2,ptr3,N);
-
-
-
-            mypacer.beat();
-            // write instant heart rate to xenstore
-            mypacer.writeInstantHeartRate();
+                // for (i = 0; i < 50; ++i)
+                // {
+                    matmult(ptr1,ptr2,ptr3,N);
 
 
-            // printf("heartbeat: instant rate: %f\n",hb_get_instant_rate(heart) );
-        // }
 
-        
+                    mypacer.beat();
+                    // write instant heart rate to xenstore
+                    mypacer.writeInstantHeartRate();
+
+
+                    // printf("heartbeat: instant rate: %f\n",hb_get_instant_rate(heart) );
+                // }
+        }
+                
 
         
     }
