@@ -92,7 +92,16 @@ class MonitorThread(threading.Thread):
 					heart_rate=-1
 					try :
 						heart_rate = float(msg)
-						self.res_allocat(heart_rate)	
+						if self.domuid==monitoring_domU[0]:
+							self.res_allocat(heart_rate)	
+						else:
+							# write data to data.txt for realtime_plot.py for visulization
+							time_now=str(time.time())
+							info = self.domuid+" "+str(heart_rate)+" hr "+time_now+"\n"
+							with open("data.txt", "a") as myfile:
+								myfile.write(info+"\n")
+							return
+
 					except:
 						heart_rate=-1			
 				self.threadLock.release()
@@ -116,6 +125,7 @@ class MonitorThread(threading.Thread):
 		cur_bw = self.allocMod.exec_allocation(heart_rate,cur_bw)
 		# run stride sharing if needed
 		(cur_bw,other_cur_bw)=self.allocMod.exec_stride_sharing(cur_bw,time.time())
+		other_cur_bw = self.timeslice_us - cur_bw
 
 		# assign the new cpu resource to VM
 		other_info = self.shared_data[self.other_domuid]
