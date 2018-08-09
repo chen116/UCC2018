@@ -12,7 +12,9 @@ with open("data.txt", "w") as myfile:
 
 import argparse
 ap = argparse.ArgumentParser()
-ap.add_argument("-f", "--fps", type=float, default=10, help="target fps")
+ap.add_argument("-f1", "--fps1", type=float, default=10, help="target fps1")
+ap.add_argument("-f2", "--fps2", type=float, default=10, help="target fps2")
+
 ap.add_argument("-a1", "--algo1", type=int, default=3, help="algorithm for VM1")
 ap.add_argument("-s", "--static-alloc", type=int, default=20, help="static utilization percentage(%)")
 ap.add_argument("-a2", "--algo2", type=int, default=0, help="algorithm for VM2")
@@ -42,8 +44,12 @@ with Client(xen_bus_path="/dev/xen/xenbus") as c:
 domUs = dom0_comm.Dom0(monitoring_items,monitoring_domU)
 
 timeslice_us=10000#args["timeslice"]
-min_heart_rate = float(args["fps"])
-max_heart_rate = float(args["fps"])*1.5
+
+
+
+min_heart_rate = { monitoring_domU[0]:float(args["fps1"])*1.1,monitoring_domU[1]:float(args["fps2"])*1.1}
+
+max_heart_rate = { monitoring_domU[0]:float(args["fps1"])*1.6,monitoring_domU[1]:float(args["fps2"])*1.6}
 
 # each thread monitor a VM
 class MonitorThread(threading.Thread):
@@ -181,8 +187,8 @@ for i in range(len(monitoring_domU)):
 
 # write out some init data for realtime_plot.py for visulization and vid_feed.py for fps
 with open("misc.txt", "w") as myfile:
-	myfile.write("min "+str(args["fps"])+"\n")
-	myfile.write("max "+str(args["fps"])+"\n")
+	myfile.write("min "+str(args["fps1"])+"\n")
+	myfile.write("max "+str(args["fps2"])+"\n")
 	myfile.write("timeslice_us "+str(timeslice_us/1000)+"\n")
 	myfile.write("VM1 "+str(monitoring_domU[0])+"\n")
 
@@ -196,7 +202,7 @@ for domuid in monitoring_domU:
 	rtxen_or_credit="rtxen"
 	if domuid in shared_data['credit']:
 		rtxen_or_credit="credit"
-	tmp_thread = MonitorThread(threadLock,shared_data,domuid,rtxen_or_credit,timeslice_us,min_heart_rate,max_heart_rate, monitoring_items)
+	tmp_thread = MonitorThread(threadLock,shared_data,domuid,rtxen_or_credit,timeslice_us,min_heart_rate[domuid],max_heart_rate[domuid], monitoring_items)
 	tmp_thread.start()
 	threads.append(tmp_thread)
 
