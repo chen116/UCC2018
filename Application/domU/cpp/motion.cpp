@@ -420,7 +420,7 @@ int main(int argc, char **argv) {
             }
             else
             {
-                for (int i = 0; i < atoi(argv[i]); ++i)
+                for (int i = 0; i < atoi(argv[0]); ++i)
                 {
                     //convert to grayscale
                     cvtColor(frame, gray, COLOR_BGR2GRAY);
