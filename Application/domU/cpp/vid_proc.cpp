@@ -267,11 +267,11 @@ int main(int argc, char** argv)
             box_coords += to_string(endY);
             mypacer.writeItem("box_entry",box_coords.c_str());
      
-    		if(prev_frame_size != frame_size)
-    		{
-    			prev_frame_size = frame_size;
-                mypacer.writeItem("frame_size",to_string(frame_size).c_str());
-    		}
+    		// if(prev_frame_size != frame_size)
+    		// {
+    		// 	prev_frame_size = frame_size;
+      //           mypacer.writeItem("frame_size",to_string(frame_size).c_str());
+    		// }
     				
     		mypacer.beat();
             if (frame_num>0)mypacer.writeInstantHeartRate();
