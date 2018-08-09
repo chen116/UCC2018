@@ -14,7 +14,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("-hw", "--heavy-workload-frame-size", type=int, default=300, help="heavy-workload-frame-size")
 ap.add_argument("-lw", "--light-workload-frame-size", type=int, default=150, help="light-workload-frame-size")
 ap.add_argument("-v", "--video-sequence",default="1111111110000000111111",help="video sequences")
-ap.add_argument("-d", "--domids",default="28,29",help="VM1 VM2 domain id")
+ap.add_argument("-d", "--domids",default="2,3",help="VM1 VM2 domain id")
 ap.add_argument("-f", "--fps", type=int, default=20,help="fps")
 
 args = vars(ap.parse_args())
@@ -105,7 +105,7 @@ with Client(xen_bus_path="/dev/xen/xenbus") as c:
 		frame_cnt+=1
 
 		# send frame number to domUs
-		for domuid in [domu_ids[0]]:#domu_ids:
+		for domuid in domu_ids:
 			key_path_hash=('/local/domain/'+domuid+'/frame_number_entry').encode()
 			c.write(key_path_hash,str(frame_cnt).encode()) # write in frame number
 		while time.time()- tn < 1/fps_val:
