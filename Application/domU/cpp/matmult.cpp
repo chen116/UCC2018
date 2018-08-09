@@ -62,10 +62,11 @@ int main(int argc, char** argv)
 
     for (i = 0; i < 50; ++i)
     {
-
-
-
         matmult(ptr1,ptr2,ptr3,N);
+        matmult(ptr1,ptr2,ptr3,N);
+
+
+
         mypacer.beat();
         // write instant heart rate to xenstore
         mypacer.writeInstantHeartRate();
@@ -78,7 +79,6 @@ int main(int argc, char** argv)
     for (i = 0; i < 50; ++i)
     {
 
-        matmult(ptr1,ptr2,ptr3,N);
         matmult(ptr1,ptr2,ptr3,N);
         mypacer.beat();
         // write instant heart rate to xenstore
